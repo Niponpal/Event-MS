@@ -15,7 +15,7 @@ namespace EventMS.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Registration> Registrations { get; set; }
-
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Venue> Venues { get; set; }
     }
 }

@@ -1,0 +1,46 @@
+﻿@model Venue
+
+<div class="container mt-4">
+    <h3 class="mb-4 fw-bold text-primary">Add / Edit Venue</h3>
+ <form asp-action="CreateOrEdit" method="post" class="needs-validation" novalidate>
+        <!-- Venue Name -->
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label fw-semibold">Venue Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter venue name" />
+            <span asp-validation-for="Name" class="text-danger small"></span>
+        </div>
+        <!-- Address -->
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label fw-semibold">Address</label>
+            <textarea asp-for="Address" class="form-control" placeholder="Enter full address" rows="3"></textarea>
+            <span asp-validation-for="Address" class="text-danger small"></span>
+        </div>
+        <!-- Address -->
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label fw-semibold">Address</label>
+            <textarea asp-for="Address" class="form-control" placeholder="Enter full address" rows="3"></textarea>
+            <span asp-validation-for="Address" class="text-danger small"></span>
+        </div>
+        <!-- Contact Info -->
+        <div class="mb-3">
+            <label asp-for="ContactInfo" class="form-label fw-semibold">Contact Information</label>
+            <input asp-for="ContactInfo" class="form-control" placeholder="Enter contact number or email" />
+            <span asp-validation-for="ContactInfo" class="text-danger small"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Capacity" class="form-label fw-semibold">Capacity Information</label>
+            <input asp-for="Capacity" type="number" min="0" class="form-control" placeholder="Capacity" />
+            <span asp-validation-for="Capacity" class="text-danger small"></span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+            <button type="submit" class="btn btn-primary px-4">
+                <i class="bi bi-save"></i> Save
+            </button>
+        </div>
+    </form>
+</div>

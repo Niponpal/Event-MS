@@ -1,7 +1,7 @@
 ﻿using EventMS.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EventMS
+namespace EventMS.Data
 {
     public class ApplicationDbContext: DbContext
     {
@@ -10,6 +10,7 @@ namespace EventMS
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Event> Events { get; set; }
 
     }
 }

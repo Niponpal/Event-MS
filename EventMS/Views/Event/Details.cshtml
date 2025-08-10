@@ -1,0 +1,44 @@
+﻿@model Event
+
+<div class="card my-4 shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Event Details</h3>
+    </div>
+
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3 fw-semibold">Event ID</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3 fw-semibold">Title</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3 fw-semibold">Description</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+
+            <dt class="col-sm-3 fw-semibold">Location</dt>
+            <dd class="col-sm-9">@Model.Location</dd>
+
+            <dt class="col-sm-3 fw-semibold">Start Date & Time</dt>
+            <dd class="col-sm-9">@Model.StartDate.ToString("f")</dd>
+
+            <dt class="col-sm-3 fw-semibold">End Date & Time</dt>
+            <dd class="col-sm-9">@Model.EndDate.ToString("f")</dd>
+
+            <dt class="col-sm-3 fw-semibold">Category</dt>
+            <dd class="col-sm-9">@Model.Category</dd>
+
+            <dt class="col-sm-3 fw-semibold">Maximum Attendees</dt>
+            <dd class="col-sm-9">@Model.MaxAttendees</dd>
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">
+                <i class="bi bi-pencil-square me-1"></i> Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left me-1"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>

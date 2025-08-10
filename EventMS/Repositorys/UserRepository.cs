@@ -1,4 +1,5 @@
-﻿using EventMS.Models;
+﻿using EventMS.Data;
+using EventMS.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventMS.Repositorys

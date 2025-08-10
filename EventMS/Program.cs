@@ -1,4 +1,4 @@
-using EventMS;
+using EventMS.Data;
 using EventMS.Repositorys;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(x=>x.UseSqlServer(builder.Configuration.GetConnectionString("Coon")));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEventRepository, EventRepository>();
 
 var app = builder.Build();
 

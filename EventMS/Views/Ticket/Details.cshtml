@@ -1,0 +1,31 @@
+﻿@model Ticket
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Ticket Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <strong>Ticket Type:</strong>
+                <span class="ms-2">@Model.TicketType</span>
+            </div>
+            <div class="mb-3">
+                <strong>Price:</strong>
+                <span class="ms-2">@Model.Price.ToString("C")</span>
+            </div>
+            <div class="mb-3">
+                <strong>Quantity Available:</strong>
+                <span class="ms-2">@Model.QuantityAvailable</span>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="CreateOrEdit" asp-route-id="@Model.Id" class="btn btn-warning">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div

@@ -12,6 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(x=>x.UseSqlServer(builder.Co
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 
 var app = builder.Build();
 

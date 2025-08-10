@@ -1,0 +1,63 @@
+﻿@model Payment
+
+
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="CreateOrEdit" method="post" class="needs-validation" novalidate>
+
+                <!-- Amount -->
+                <div class="mb-3">
+                    <label asp-for="Amount" class="form-label">Amount</label>
+                    <input asp-for="Amount" class="form-control" type="number" step="0.01" min="0" />
+                    <span asp-validation-for="Amount" class="text-danger small"></span>
+                </div>
+
+                <!-- Payment Date -->
+                <div class="mb-3">
+                    <label asp-for="PaymentDate" class="form-label">Payment Date</label>
+                    <input asp-for="PaymentDate" class="form-control" type="date" />
+                    <span asp-validation-for="PaymentDate" class="text-danger small"></span>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="mb-3">
+                    <label asp-for="PaymentMethod" class="form-label">Payment Method</label>
+                    <select asp-for="PaymentMethod" class="form-select">
+                        <option value="">-- Select Payment Method --</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="PayPal" >PayPal</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Cash">Cash</option>
+                    </select>
+                    <span asp-validation-for="PaymentMethod" class="text-danger small"></span>
+                </div>
+
+                <!-- Payment Status -->
+                <div class="mb-3">
+                    <label asp-for="PaymentStatus" class="form-label">Payment Status</label>
+                    <select asp-for="PaymentStatus" class="form-select">
+                        <option value="">-- Select Payment Status --</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Failed">Failed</option>
+                    </select>
+                    <span asp-validation-for="PaymentStatus" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

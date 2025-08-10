@@ -1,0 +1,50 @@
+﻿@model Payment
+
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Payment Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <strong>Id:</strong> <span class="ms-2">@Model.Id</span>
+            </div>
+            <div class="mb-3">
+                <strong>Amount:</strong> <span class="ms-2">@Model.Amount.ToString("C")</span>
+            </div>
+            <div class="mb-3">
+                <strong>Payment Date:</strong> <span class="ms-2">@Model.PaymentDate.ToString("yyyy-MM-dd")</span>
+            </div>
+            <div class="mb-3">
+                <strong>Payment Method:</strong> <span class="ms-2">@Model.PaymentMethod</span>
+            </div>
+            <div class="mb-3">
+                <strong>Payment Status:</strong>
+                @if (!string.IsNullOrEmpty(Model.PaymentStatus))
+                {
+                    if (Model.PaymentStatus.ToLower() == "paid")
+                    {
+                        <span class="badge bg-success ms-2">Paid</span>
+                    }
+                    else if (Model.PaymentStatus.ToLower() == "pending")
+                    {
+                        <span class="badge bg-warning text-dark ms-2">Pending</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary ms-2">@Model.PaymentStatus</span>
+                    }
+                }
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="CreateOrEdit" asp-route-id="@Model.Id" class="btn btn-warning">
+                Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>

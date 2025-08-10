@@ -1,0 +1,37 @@
+﻿@model User
+
+
+
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="mb-4 text-primary">User Details</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-sm-4 fw-semibold">ID</div>
+                <div class="col-sm-8">@Model.Id</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-4 fw-semibold">Name</div>
+                <div class="col-sm-8">@Model.Name</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-4 fw-semibold">Email</div>
+                <div class="col-sm-8">@Model.Email</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-4 fw-semibold">Role</div>
+                <div class="col-sm-8">@Model.Role</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-4 fw-semibold">Contact Info</div>
+                <div class="col-sm-8">@Model.ContactInfo</div>
+            </div>
+        </div>
+    </div>
+
+ <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</

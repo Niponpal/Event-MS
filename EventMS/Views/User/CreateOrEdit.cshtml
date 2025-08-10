@@ -1,0 +1,53 @@
+﻿@model User
+
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="mb-4 text-primary">Create New User</h2>
+
+    <form asp-action="CreateOrEdit" method="post" novalidate>
+        <div asp-validation-summary="All" class="alert alert-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label fw-semibold"></label>
+            <input asp-for="Name" class="form-control form-control-lg" placeholder="Enter full name" />
+            <span asp-validation-for="Name" class="text-danger fst-italic"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label fw-semibold"></label>
+            <input asp-for="Email" type="email" class="form-control form-control-lg" placeholder="example@domain.com" />
+            <span asp-validation-for="Email" class="text-danger fst-italic"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label fw-semibold"></label>
+            <input asp-for="Password" type="password" class="form-control form-control-lg" placeholder="Choose a secure password" />
+            <span asp-validation-for="Password" class="text-danger fst-italic"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Role" class="form-label fw-semibold"></label>
+            <select asp-for="Role" class="form-select form-select-lg">
+                <option value="" disabled selected>-- Select Role --</option>
+                <option value="Attendee">Attendee</option>
+                <option value="Organizer">Organizer</option>
+                <option value="Admin">Admin</option>
+            </select>
+            <span asp-validation-for="Role" class="text-danger fst-italic"></span>
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="ContactInfo" class="form-label fw-semibold"></label>
+            <input asp-for="ContactInfo" class="form-control form-control-lg" placeholder="Phone or other contact info" />
+            <span asp-validation-for="ContactInfo" class="text-danger fst-italic"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">
+            <i class="bi bi-plus-circle me-2"></i>Create User
+        </button>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

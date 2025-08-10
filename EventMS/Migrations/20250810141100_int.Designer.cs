@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250810132515_int")]
+    [Migration("20250810141100_int")]
     partial class @int
     {
         /// <inheritdoc />
@@ -82,6 +82,26 @@ namespace EventMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("EventMS.Models.Registration", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PaymentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Registrations");
                 });
 
             modelBuilder.Entity("EventMS.Models.Ticket", b =>

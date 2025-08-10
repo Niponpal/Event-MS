@@ -1,0 +1,48 @@
+﻿@model Registration
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Registration" : "Edit Registration";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="CreateOrEdit" method="post" class="needs-validation" novalidate>
+                @if (Model.Id != 0)
+                {
+                    <input type="hidden" asp-for="Id" />
+                }
+
+                <!-- Registration Date -->
+                <div class="mb-3">
+                    <label asp-for="RegistrationDate" class="form-label">Registration Date</label>
+                    <input asp-for="RegistrationDate" class="form-control" type="date" />
+                    <span asp-validation-for="RegistrationDate" class="text-danger small"></span>
+                </div>
+
+                <!-- Payment Status -->
+                <div class="mb-3">
+                    <label asp-for="PaymentStatus" class="form-label">Payment Status</label>
+                    <select asp-for="PaymentStatus" class="form-select">
+                        <option value="">-- Select Payment Status --</option>
+                        <option value="Paid" >Paid</option>
+                        <option value="Pending")>Pending</option>
+                    </select>
+                    <span asp-validation-for="PaymentStatus" class="text-danger small"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

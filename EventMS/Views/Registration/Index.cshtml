@@ -1,0 +1,51 @@
+﻿@model List<Registration>
+
+<a asp-action="CreateOrEdit" class="btn btn-primary mb-3">Add New Ticket</a>
+
+<table class="table table-bordered table-striped table-secondary">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Registration Date</th>
+            <th>Payment Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.RegistrationDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    @if (item.PaymentStatus == "Paid")
+                    {
+                        <span class="badge bg-success">Paid</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">Pending</span>
+                    }
+                </td>
+
+                <td>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a asp-action="CreateOrEdit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
+                            Edit
+                        </a>
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post"
+                              onsubmit="return confirm('Are you sure you want to delete this item?');"
+                              class="m-0">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                Delete
+                            </button>
+                        </form>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                            Details
+                        </a>
+                    </div>
+                </td>
+
+            </tr>
+        }
+</table>

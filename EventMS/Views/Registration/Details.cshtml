@@ -1,0 +1,38 @@
+﻿@model Registration
+
+
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Registration Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <strong>Id:</strong> <span class="ms-2">@Model.Id</span>
+            </div>
+            <div class="mb-3">
+                <strong>Registration Date:</strong> <span class="ms-2">@Model.RegistrationDate.ToString("yyyy-MM-dd")</span>
+            </div>
+            <div class="mb-3">
+                <strong>Payment Status:</strong>
+                @if (Model.PaymentStatus == "Paid")
+                {
+                    <span class="badge bg-success ms-2">Paid</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning text-dark ms-2">Pending</span>
+                }
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="CreateOrEdit" asp-route-id="@Model.Id" class="btn btn-warning">
+                Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>

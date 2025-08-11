@@ -4,21 +4,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EventMS.Repositorys
 {
-    public class UserRepository : IUserRepository
+    public class UsersRepository : IUsersRepository
     {
          private readonly ApplicationDbContext _context;
-         public UserRepository(ApplicationDbContext context)
+         public UsersRepository(ApplicationDbContext context)
          { 
                 _context = context;
          }
-        public async Task<User> AddAsync(User user)
+        public async Task<Users> AddAsync(Users user)
         {
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;
         }
 
-        public async Task<User?> DeleteAsync(int id)
+        public async Task<Users?> DeleteAsync(int id)
         {
             var data = await _context.Users.FindAsync(id);
             if (data == null)
@@ -30,19 +30,19 @@ namespace EventMS.Repositorys
             return data;
         }
 
-        public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<Users>> GetAllAsync()
         {
             var data = await _context.Users.ToListAsync();
             return data;
         }
 
-        public Task<User> GetByUrlHandleAsync(string urlHandle)
+        public Task<Users> GetByUrlHandleAsync(string urlHandle)
         {
            var data = _context.Users.FirstOrDefaultAsync(u => u.Email == urlHandle);
             return data;
         }
 
-        public async Task<User?> GetIdAsync(int id)
+        public async Task<Users?> GetIdAsync(int id)
         {
             var data = await _context.Users.FindAsync(id);
             if (data == null)
@@ -52,7 +52,7 @@ namespace EventMS.Repositorys
             return data;
         }
 
-        public async Task<User?> UpdateAsync(User user)
+        public async Task<Users?> UpdateAsync(Users user)
         {
             var data = await _context.Users.FindAsync(user.Id);
             if (data != null)

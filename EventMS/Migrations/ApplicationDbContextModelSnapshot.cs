@@ -235,7 +235,7 @@ namespace EventMS.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("EventMS.Models.User", b =>
+            modelBuilder.Entity("EventMS.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

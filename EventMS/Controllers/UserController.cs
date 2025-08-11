@@ -6,8 +6,8 @@ namespace EventMS.Controllers
 {
     public class UserController : Controller
     {
-        private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRepository)
+        private readonly IUsersRepository _userRepository;
+        public UserController(IUsersRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -21,7 +21,7 @@ namespace EventMS.Controllers
         {
             if (id == 0) 
             {
-                return View(new User());
+                return View(new Users());
             }
             else
             {
@@ -30,7 +30,7 @@ namespace EventMS.Controllers
              } 
         }
         [HttpPost]
-        public async Task<IActionResult> CreateOrEdit(User user)
+        public async Task<IActionResult> CreateOrEdit(Users user)
         {
              if (user.Id == 0)
              {

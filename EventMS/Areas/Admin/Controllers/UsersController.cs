@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace EventMS.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class UserController : Controller
+    public class UsersController : Controller
     {
-        private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRepository)
+        private readonly IUsersRepository _userRepository;
+        public UsersController(IUsersRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -22,7 +22,7 @@ namespace EventMS.Areas.Admin.Controllers
         {
             if (id == 0) 
             {
-                return View(new User());
+                return View(new Users());
             }
             else
             {
@@ -31,7 +31,7 @@ namespace EventMS.Areas.Admin.Controllers
              } 
         }
         [HttpPost]
-        public async Task<IActionResult> CreateOrEdit(User user)
+        public async Task<IActionResult> CreateOrEdit(Users user)
         {
              if (user.Id == 0)
              {

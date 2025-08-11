@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250811064818_intdb")]
-    partial class intdb
+    [Migration("20250811144616_int")]
+    partial class @int
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,7 +238,7 @@ namespace EventMS.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("EventMS.Models.User", b =>
+            modelBuilder.Entity("EventMS.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

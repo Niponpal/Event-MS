@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250811054400_intdb")]
+    [Migration("20250811062644_intdb")]
     partial class intdb
     {
         /// <inheritdoc />
@@ -129,6 +129,37 @@ namespace EventMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Registrations");
+                });
+
+            modelBuilder.Entity("EventMS.Models.Session", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Speaker")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sessions");
                 });
 
             modelBuilder.Entity("EventMS.Models.Sponsor", b =>

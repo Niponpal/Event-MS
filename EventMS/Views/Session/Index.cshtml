@@ -1,0 +1,37 @@
+﻿@model List<Session>
+
+<a asp-action="CreateOrEdit" class="btn btn-primary mb-3">Add New Session</a>
+
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Speaker Info</th>
+            <th>StartTime </th>
+            <th>EndTime</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Speaker</td>
+                <td>@item.StartTime.ToString("dd-MM-yyyy HH:mm")</td>
+                <td>@item.EndTime.ToString("dd-MM-yyyy HH:mm")</td>
+                <td>@item.Location</td>
+                <td>
+                    <a asp-action="CreateOrEdit" asp-route-id="@item.Id" class="btn btn-primary"></a>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;" onclick="return confirm('Are You Sure Delete Data')">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"></a>
+                </td>
+            </tr>
+        }
+
+</table>

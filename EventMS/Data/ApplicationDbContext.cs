@@ -17,5 +17,6 @@ namespace EventMS.Data
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Venue> Venues { get; set; }
+        public DbSet<Sponsor> Sponsors { get; set; }
     }
 }

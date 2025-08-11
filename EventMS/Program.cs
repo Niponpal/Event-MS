@@ -16,6 +16,7 @@ builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IVenueRepository, VenueRepository>();
+builder.Services.AddScoped<ISponsorRepository, SponsorRepository>();
 
 var app = builder.Build();
 

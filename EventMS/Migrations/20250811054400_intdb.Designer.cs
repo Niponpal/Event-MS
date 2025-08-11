@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250810180201_int")]
-    partial class @int
+    [Migration("20250811054400_intdb")]
+    partial class intdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,6 +129,30 @@ namespace EventMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Registrations");
+                });
+
+            modelBuilder.Entity("EventMS.Models.Sponsor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ContactInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("SponsorshipAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sponsors");
                 });
 
             modelBuilder.Entity("EventMS.Models.Ticket", b =>

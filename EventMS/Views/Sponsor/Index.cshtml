@@ -1,0 +1,32 @@
+﻿@model List<Sponsor>
+
+    <a asp-action="CreateOrEdit" class="btn btn-primary mb-3">Add New Sponsor</a>
+
+    <table class="table table-bordered table-striped table-dark">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Contact Info</th>
+            <th>Sponsorship Amount</th>
+             <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sponsor in Model)
+            {
+                <tr>
+                    <td>@sponsor.Id</td>
+                    <td>@sponsor.Name</td>
+                    <td>@sponsor.ContactInfo</td>
+                    <td>@sponsor.SponsorshipAmount.ToString("C")</td>
+                    <td>
+                      <a asp-action="CreateOrEdit" asp-route-id="@sponsor.Id" class="btn btn-primary"></a>
+                      <form asp-action="Delete" asp-route-id="@sponsor.Id" method="post" style="display:inline;" onclick="return confirm('Are You Sure Delete Data')">
+                        <button type="submit" class="btn btn-danger">Delete</button> </form>
+                      <a asp-action="Details" asp-route-id="@sponsor.Id" class="btn btn-info"></a>
+                    </td>
+                </tr>
+        }
+
+    </table>

@@ -1,0 +1,27 @@
+﻿@model Sponsor
+
+<div class="container mt-4" >
+    <h3 class="mb-4 fw-bold text-primary">Add / Edit Sponsor</h3>
+    <form asp-action="CreateOrEdit" method="post">
+        <div class="mb-3">
+          <label asp-for="Name" class="form-label">Enter Your Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter your name" />
+        </div>
+        <div class="mt-3">
+            <label asp-for="ContactInfo" class="form-label">Enter Your Contact Info</label>
+            <input type="number" asp-for="ContactInfo" class="form-control" placeholder="Enter Your Contact Info" />
+        </div>
+        <div class="mt-3">
+            <label asp-for="SponsorshipAmount" class="form-label">Sponsorship Amount </label>
+            <input asp-for="SponsorshipAmount" class="form-control" type="number" placeholder="Sponsorship Amount" />
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Index"  class="btn btn-secondary">Back to list</a>
+            <button type="submit" class="btn btn-primary px-4" >Save</button>
+        </div>
+    </form>
+    
+</div>

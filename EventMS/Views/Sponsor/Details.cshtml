@@ -1,0 +1,32 @@
+﻿@model Sponsor
+
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Sponsor Details</h2>
+
+    <div class="card shadow-sm p-4">
+        <div class="mb-3">
+            <label class="fw-bold">Name:</label>
+            <span>@Model.Name</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="fw-bold">Contact Info:</label>
+            <span>@Model.ContactInfo</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="fw-bold">Sponsorship Amount:</label>
+            <span>@Model.SponsorshipAmount.ToString("C")</span>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+            Edit
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+</div>

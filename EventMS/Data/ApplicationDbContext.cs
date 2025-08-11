@@ -19,5 +19,6 @@ namespace EventMS.Data
         public DbSet<Venue> Venues { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
     }
 }

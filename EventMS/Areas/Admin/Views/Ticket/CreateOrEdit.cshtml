@@ -1,0 +1,42 @@
+﻿@model Ticket
+
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white fw-bold">
+            Create Ticket
+        </div>
+        <div class="card-body">
+            <form asp-action="CreateOrEdit" method="post" novalidate>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="TicketType" class="form-label">Ticket Type</label>
+                    <select asp-for="TicketType" class="form-select">
+                        <option value="">-- Select Ticket Type --</option>
+                        <option value="Regular">Regular</option>
+                        <option value="VIP">VIP</option>
+                        <option value="Premium">Premium</option>
+                    </select>
+                    <span asp-validation-for="TicketType" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label">Price</label>
+                    <input asp-for="Price" class="form-control" placeholder="Enter ticket price" type="number" step="0.01" />
+                    <span asp-validation-for="Price" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="QuantityAvailable" class="form-label">Quantity Available</label>
+                    <input asp-for="QuantityAvailable" class="form-control" placeholder="Enter available quantity" type="number" min="0" />
+                    <span asp-validation-for="QuantityAvailable" class="text-danger small"></span>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success fw-semibold">Save Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

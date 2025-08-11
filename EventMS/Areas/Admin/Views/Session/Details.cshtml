@@ -1,0 +1,37 @@
+﻿@model Session
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Session Details</h2>
+
+    <div class="card shadow-sm p-4">
+        <div class="mb-3">
+            <label class="fw-bold">Title:</label>
+            <span>@Model.Title</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="fw-bold">Speaker:</label>
+            <span>@Model.Speaker</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="fw-bold">Start Time:</label>
+            <span>@Model.StartTime.ToString("dd-MM-yyyy hh:mm tt")</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="fw-bold">End Time:</label>
+            <span>@Model.EndTime.ToString("dd-MM-yyyy hh:mm tt")</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="fw-bold">Location:</label>
+            <span>@Model.Location</span>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

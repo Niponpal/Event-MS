@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EventMS.styles.css" asp-append-version="true" />
 
+    <!-- Boostrap Icons Use -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
@@ -16,6 +19,11 @@
     <link rel="stylesheet" href="~/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/AdminLTE/css/adminlte.min.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -250,21 +258,76 @@
                                 </p>
                             </a>
 
+
                             <ul class="nav nav-treeview">
+
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <a asp-action="Index" asp-controller="Category" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Top Navigation</p>
+                                        <p>Category</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                    <a asp-action="Index" asp-controller="Event" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Top Navigation + Sidebar</p>
+                                        <p>Event</p>
                                     </a>
                                 </li>
-                               
-                             
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Payment" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Payment</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Registration" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Registration</p>
+                                    </a>
+                                </li>
+                                  <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Session" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Session</p>
+                                    </a>
+                                </li>
+                                  <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Speaker" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Speaker</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Sponsor" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sponsor</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Ticket" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ticket</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="User" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>User</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="Index" asp-controller="Venue" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Venue</p>
+                                    </a>
+                                </li>
+
+
+                              
+
+
+            
                               
                     </ul>
                 </nav>
@@ -331,6 +394,19 @@
     <script src="~/AdminLTE/js/pages/dashboard2.js"></script>
 
 
+    <!-- DataTables  & Plugins -->
+    <script src="~/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/AdminLTE/plugins/jszip/jszip.min.js"></script>
+    <script src="~/AdminLTE/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/AdminLTE/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

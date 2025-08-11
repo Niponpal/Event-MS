@@ -1,0 +1,127 @@
+﻿@model List<Event>
+
+<div class="card">
+    <div class="card-header">
+        <a asp-action="CreateOrEdit" class="btn btn-success">
+            Add New Event
+            <i class="bi bi-plus-circle"></i>
+        </a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>StartDate</th>
+                    <th>EndDate</th>
+                    <th>Category</th>
+                    <th>MaxAttendees</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Location</td>
+                        <td>@item.StartDate.ToString("MM/dd/yyyy")</td>
+                        <td>@item.EndDate.ToString("MM/dd/yyyy")</td>
+                        <td>@item.Category</td>
+                        <td>@item.MaxAttendees</td>
+                        <td>
+                            <a asp-action="CreateOrEdit" asp-route-id="@item.Id" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" onclick="return confirm('Are You Sure Delete Data')">
+                                <button class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+                            </form>
+
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="bi bi-info-circle-fill"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Rendering engine</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>CSS grade</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(function () {
+          $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+          $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+          });
+        });
+    </script>
+}
+
+
+
+
+@* 
+<a asp-action="CreateOrEdit" class="btn btn-primary mb-3">Add New Events</a>
+   <table class="table table-striped table-bordered">
+       <thead>
+           <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>Category</th>
+            <th>MaxAttendees</th>
+            <th>Action</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var item in Model)
+           {
+               <tr>
+                   <td>@item.Id</td>
+                   <td>@item.Title</td>
+                   <td>@item.Description</td>
+                   <td>@item.Location</td>
+                   <td>@item.StartDate.ToString("MM/dd/yyyy")</td>
+                   <td>@item.EndDate.ToString("MM/dd/yyyy")</td>
+                   <td>@item.Category</td>
+                   <td>@item.MaxAttendees</td>
+                   <td>
+                    <a asp-action="CreateOrEdit" asp-route-id="@item.Id" class="btn btn-primary"></a>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" onclick="return confirm('Are You Sure Delete Data')" >
+                       <button class="btn btn-danger"></button> 
+                    </form>
+                   
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                   </td>
+               </tr>
+           }
+    </tbody>
+    </table> *@
